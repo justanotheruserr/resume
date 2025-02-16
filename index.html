@@ -121,9 +121,40 @@
             color: #888;
         }
         @media print {
+            /* Set A4 page size */
+            @page {
+                size: A4;
+                margin: 20mm; /* Adjust margins for better spacing */
+            }
+        
+            /* Hide elements not needed in PDF */
             .download-btn,
             .footer {
                 display: none !important;
+            }
+        
+            /* Optimize text for printing */
+            body {
+                font-size: 12pt; /* Adjust font size for readability */
+                color: #000; /* Ensure proper print contrast */
+                background: none; /* Remove background colors */
+            }
+        
+            /* Avoid breaking sections awkwardly */
+            .section {
+                page-break-inside: avoid;
+                margin-bottom: 15px; /* Add spacing between sections */
+            }
+        
+            /* Ensure headers don't get cut off */
+            h1, h2 {
+                page-break-after: avoid;
+                font-size: 16pt;
+            }
+        
+            /* Adjust list styles */
+            ul {
+                padding-left: 20px;
             }
         }
     </style>
